@@ -7,7 +7,6 @@ package de.yser.ownsimplecache.cache;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 
 /**
  *
@@ -88,29 +87,21 @@ public class CacheHashMap<K, V> {
 		this.putAll(m, DEFAULT_EXPIRING_TIME);
 	}
 
+	// Lambda-way
+//	public void putAll(CacheHashMap<K, V> m, long expiringTime) {
+//		final HashMap<K, ExpiringEntry<V>> newMap = new HashMap<>();
+//		m.entrySet().stream().forEach((entry) -> {
+//			newMap.put(entry.getKey(), new ExpiringEntry<>(entry.getValue(), expiringTime));
+//		});
+//		cache.putAll(newMap);
+//	}
 	public void putAll(CacheHashMap<K, V> m, long expiringTime) {
-		final HashMap<K, ExpiringEntry<V>> newMap = new HashMap<>();
-		m.entrySet().stream().forEach((entry) -> {
-			newMap.put(entry.getKey(), new ExpiringEntry<>(entry.getValue(), expiringTime));
-		});
-		cache.putAll(newMap);
-	}
-
-	// ################ OLD ###################
-	@Deprecated
-	public void putAllOLD(CacheHashMap<K, V> m) {
-		this.putAllOLD(m, DEFAULT_EXPIRING_TIME);
-	}
-
-	@Deprecated
-	public void putAllOLD(CacheHashMap<K, V> m, long expiringTime) {
 		HashMap<K, ExpiringEntry<V>> newMap = new HashMap<>();
 		for (Map.Entry<K, V> entry : m.entrySet()) {
 			newMap.put(entry.getKey(), new ExpiringEntry<>(entry.getValue(), expiringTime));
 		}
 		cache.putAll(newMap);
 	}
-	// ################ OLD ###################
 
 	public V remove(K key) {
 		ExpiringEntry<V> previous = cache.remove(key);
@@ -164,21 +155,13 @@ public class CacheHashMap<K, V> {
 		return cache.keySet();
 	}
 
+	// Lambda-way
+//	public Collection<V> values() {
+//		return cache.values().stream().
+//			map((entry) -> entry.getValue()).
+//			collect(Collectors.toCollection(ArrayList::new));
+//	}
 	public Collection<V> values() {
-		return cache.values().stream().
-			map((entry) -> entry.getValue()).
-			collect(Collectors.toCollection(ArrayList::new));
-	}
-
-	public Set<Map.Entry<K, V>> entrySet() {
-		return cache.entrySet().stream().
-			map((expEntry) -> new AbstractMap.SimpleEntry<>(expEntry.getKey(), expEntry.getValue().getValue())).
-			collect(Collectors.toCollection(HashSet::new));
-	}
-
-	// ################ OLD ###################
-	@Deprecated
-	public Collection<V> valuesOLD() {
 		Collection values = new ArrayList<>();
 		for (ExpiringEntry<V> entry : cache.values()) {
 			values.add(entry.getValue());
@@ -186,8 +169,13 @@ public class CacheHashMap<K, V> {
 		return values;
 	}
 
-	@Deprecated
-	public Set<Map.Entry<K, V>> entrySetOLD() {
+	// Lambda-way
+//	public Set<Map.Entry<K, V>> entrySet() {
+//		return cache.entrySet().stream().
+//			map((expEntry) -> new AbstractMap.SimpleEntry<>(expEntry.getKey(), expEntry.getValue().getValue())).
+//			collect(Collectors.toCollection(HashSet::new));
+//	}
+	public Set<Map.Entry<K, V>> entrySet() {
 		Set<Map.Entry<K, V>> entrySet = new HashSet<>();
 		for (Map.Entry<K, ExpiringEntry<V>> expEntry : cache.entrySet()) {
 			Map.Entry<K, V> entry = new AbstractMap.SimpleEntry<>(expEntry.getKey(), expEntry.getValue().getValue());
@@ -195,7 +183,6 @@ public class CacheHashMap<K, V> {
 		}
 		return entrySet;
 	}
-	// ################ OLD ###################
 
 	public Enumeration<K> keys() {
 		return cache.keys();
@@ -210,17 +197,15 @@ public class CacheHashMap<K, V> {
 		return Collections.enumeration(elements);
 	}
 
+	// Lambda-way
+//	protected void removeExpired() {
+//		cache.entrySet().stream().parallel().forEach((entry) -> {
+//			if (entry.getValue().isExpiried()) {
+//				cache.remove(entry.getKey());
+//			}
+//		});
+//	}
 	protected void removeExpired() {
-		cache.entrySet().stream().parallel().forEach((entry) -> {
-			if (entry.getValue().isExpiried()) {
-				cache.remove(entry.getKey());
-			}
-		});
-	}
-
-	// ################ OLD ###################
-	@Deprecated
-	protected void removeExpiredOLD() {
 		for (Map.Entry<K, ExpiringEntry<V>> entry : cache.entrySet()) {
 			K k = entry.getKey();
 			ExpiringEntry<V> expiringEntry = entry.getValue();
@@ -229,6 +214,5 @@ public class CacheHashMap<K, V> {
 			}
 		}
 	}
-	// ################ OLD ###################
 
 }

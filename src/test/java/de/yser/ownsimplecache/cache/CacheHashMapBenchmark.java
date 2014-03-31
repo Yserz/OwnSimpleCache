@@ -63,24 +63,22 @@ public class CacheHashMapBenchmark {
 		cache100.entrySet();
 	}
 
-	@GenerateMicroBenchmark
-	@BenchmarkMode(Mode.AverageTime)
-	public void bench100EntrySetOLD() {
-		cache100.entrySetOLD();
-	}
-
+//	@GenerateMicroBenchmark
+//	@BenchmarkMode(Mode.AverageTime)
+//	public void bench100EntrySetOLD() {
+//		cache100.entrySetOLD();
+//	}
 	@GenerateMicroBenchmark
 	@BenchmarkMode(Mode.AverageTime)
 	public void bench1000EntrySet() {
 		cache1000.entrySet();
 	}
 
-	@GenerateMicroBenchmark
-	@BenchmarkMode(Mode.AverageTime)
-	public void bench1000EntrySetOLD() {
-		cache1000.entrySetOLD();
-	}
-
+//	@GenerateMicroBenchmark
+//	@BenchmarkMode(Mode.AverageTime)
+//	public void bench1000EntrySetOLD() {
+//		cache1000.entrySetOLD();
+//	}
 	// #### ENTRYSET ####
 	// #### VALUES ####
 	@GenerateMicroBenchmark
@@ -89,24 +87,22 @@ public class CacheHashMapBenchmark {
 		cache100.values();
 	}
 
-	@GenerateMicroBenchmark
-	@BenchmarkMode(Mode.AverageTime)
-	public void bench100ValuesOLD() {
-		cache100.valuesOLD();
-	}
-
+//	@GenerateMicroBenchmark
+//	@BenchmarkMode(Mode.AverageTime)
+//	public void bench100ValuesOLD() {
+//		cache100.valuesOLD();
+//	}
 	@GenerateMicroBenchmark
 	@BenchmarkMode(Mode.AverageTime)
 	public void bench1000Values() {
 		cache1000.values();
 	}
 
-	@GenerateMicroBenchmark
-	@BenchmarkMode(Mode.AverageTime)
-	public void bench1000ValuesOLD() {
-		cache1000.valuesOLD();
-	}
-
+//	@GenerateMicroBenchmark
+//	@BenchmarkMode(Mode.AverageTime)
+//	public void bench1000ValuesOLD() {
+//		cache1000.valuesOLD();
+//	}
 	// #### VALUES ####
 	// #### PUT_ALL ####
 	@GenerateMicroBenchmark
@@ -115,24 +111,22 @@ public class CacheHashMapBenchmark {
 		cache100.putAll(cache100);
 	}
 
-	@GenerateMicroBenchmark
-	@BenchmarkMode(Mode.AverageTime)
-	public void bench100PutAllOLD() {
-		cache100.putAllOLD(cache100);
-	}
-
+//	@GenerateMicroBenchmark
+//	@BenchmarkMode(Mode.AverageTime)
+//	public void bench100PutAllOLD() {
+//		cache100.putAllOLD(cache100);
+//	}
 	@GenerateMicroBenchmark
 	@BenchmarkMode(Mode.AverageTime)
 	public void bench1000PutAll() {
 		cache1000.putAll(cache1000);
 	}
 
-	@GenerateMicroBenchmark
-	@BenchmarkMode(Mode.AverageTime)
-	public void bench1000PutAllOLD() {
-		cache1000.putAllOLD(cache1000);
-	}
-
+//	@GenerateMicroBenchmark
+//	@BenchmarkMode(Mode.AverageTime)
+//	public void bench1000PutAllOLD() {
+//		cache1000.putAllOLD(cache1000);
+//	}
 	// #### PUT_ALL ####
 	// #### REMOVE_EXPIRED ####
 	@GenerateMicroBenchmark
@@ -141,24 +135,22 @@ public class CacheHashMapBenchmark {
 		cache100.removeExpired();
 	}
 
-	@GenerateMicroBenchmark
-	@BenchmarkMode(Mode.AverageTime)
-	public void bench100RemoveExpiredOLD() {
-		cache100.removeExpiredOLD();
-	}
-
+//	@GenerateMicroBenchmark
+//	@BenchmarkMode(Mode.AverageTime)
+//	public void bench100RemoveExpiredOLD() {
+//		cache100.removeExpiredOLD();
+//	}
 	@GenerateMicroBenchmark
 	@BenchmarkMode(Mode.AverageTime)
 	public void bench1000RemoveExpired() {
 		cache1000.removeExpired();
 	}
 
-	@GenerateMicroBenchmark
-	@BenchmarkMode(Mode.AverageTime)
-	public void bench1000RemoveExpiredOLD() {
-		cache1000.removeExpiredOLD();
-	}
-
+//	@GenerateMicroBenchmark
+//	@BenchmarkMode(Mode.AverageTime)
+//	public void bench1000RemoveExpiredOLD() {
+//		cache1000.removeExpiredOLD();
+//	}
 	// #### REMOVE_EXPIRED ####
 	// #### PUT_AND_GET ####
 	@GenerateMicroBenchmark
