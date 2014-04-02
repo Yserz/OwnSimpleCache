@@ -1,18 +1,18 @@
 package de.yser.ownsimplecache;
 
 import de.yser.ownsimplecache.util.CacheCommand;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import javax.ejb.Singleton;
 import javax.jms.*;
 
 /**
  *
  * @author MacYser
  */
-//@Singleton
+@Singleton
 public class OwnCacheServerService {
 
 	private static OwnCacheServerService instance;
@@ -21,19 +21,18 @@ public class OwnCacheServerService {
 	private ConnectionFactory connectionFactory;
 	@Resource(mappedName = "jms/CacheTopic")
 	private Topic cacheTopic;
-	private Map<String, Object> cacheServices;
+//	private Map<String, Object> cacheServices;
 
-	private OwnCacheServerService() {
+	public OwnCacheServerService() {
 		System.out.println("OwnCacheServerService startup....");
 	}
 
-	public static OwnCacheServerService getInstance() {
-		if (instance == null) {
-			instance = new OwnCacheServerService();
-		}
-		return instance;
-	}
-
+//	public static OwnCacheServerService getInstance() {
+//		if (instance == null) {
+//			instance = new OwnCacheServerService();
+//		}
+//		return instance;
+//	}
 	@PostConstruct
 	public void init() {
 		invalidateAllCaches();
