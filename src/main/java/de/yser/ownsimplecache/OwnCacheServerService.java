@@ -17,9 +17,9 @@ public class OwnCacheServerService {
 
 	private static OwnCacheServerService instance;
 
-	@Resource(mappedName = "jms/CacheTopicConnectionFactory")
+	@Resource(mappedName = "java:app/jms/CacheTopicConnectionFactory")
 	private ConnectionFactory connectionFactory;
-	@Resource(mappedName = "jms/CacheTopic")
+	@Resource(mappedName = "java:app/jms/CacheTopic")
 	private Topic cacheTopic;
 //	private Map<String, Object> cacheServices;
 
