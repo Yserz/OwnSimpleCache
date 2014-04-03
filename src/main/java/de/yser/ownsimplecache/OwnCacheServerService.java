@@ -15,8 +15,6 @@ import javax.jms.*;
 @Singleton
 public class OwnCacheServerService {
 
-	private static OwnCacheServerService instance;
-
 	@Resource(mappedName = "java:app/jms/CacheTopicConnectionFactory")
 	private ConnectionFactory connectionFactory;
 	@Resource(mappedName = "java:app/jms/CacheTopic")
@@ -27,12 +25,6 @@ public class OwnCacheServerService {
 		System.out.println("OwnCacheServerService startup....");
 	}
 
-//	public static OwnCacheServerService getInstance() {
-//		if (instance == null) {
-//			instance = new OwnCacheServerService();
-//		}
-//		return instance;
-//	}
 	@PostConstruct
 	public void init() {
 		invalidateAllCaches();
