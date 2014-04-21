@@ -22,7 +22,7 @@ public class ClearCacheInterceptor {
 
 	@EJB
 	private OwnCacheServerService cacheServer;
-	private CacheAnnotationReader annoReader;
+	private final CacheAnnotationReader annoReader;
 	private static final Logger LOG = Logger.getLogger(ClearCacheInterceptor.class.getName());
 
 	public ClearCacheInterceptor() {
@@ -31,7 +31,6 @@ public class ClearCacheInterceptor {
 
 	@AroundInvoke
 	public Object invalidate(InvocationContext context) throws Exception {
-
 		Method method = context.getMethod();
 
 		if (method.isAnnotationPresent(ClearCache.class)) {
