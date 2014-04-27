@@ -22,4 +22,19 @@
                 <goal>deploy</goal>
             </goals>
         </action>
+        <action>
+            <actionName>test</actionName>
+            <packagings>
+                <packaging>*</packaging>
+            </packagings>
+            <goals>
+                <goal>clean</goal>
+                <goal>test</goal>
+                <goal>integration-test</goal>
+            </goals>
+            <properties>
+                <skipTests>false</skipTests>
+                <skipITs>false</skipITs>
+            </properties>
+        </action>
     </actions>
