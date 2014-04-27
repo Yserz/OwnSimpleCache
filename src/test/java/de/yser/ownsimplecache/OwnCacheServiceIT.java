@@ -30,7 +30,7 @@ public class OwnCacheServiceIT {
 	public TestName test = new TestName();
 
 	private static final String HOST = "http://localhost";
-	private static final String PORT = "9090";
+	private static final String PORT = "9091";
 	private static final String ROOT = HOST + ":" + PORT + "/" + GFInstance.APP_NAME;
 
 	private static final String CATEGORY_LIST_SCHEMA = "json-schema/categoryList-schema.json";
