@@ -1,0 +1,38 @@
+### Mac OS ###
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+### Windows ###
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+### NetBeans ###
+nbproject/
+build/
+nbbuild/
+dist/
+nbdist/
+build.xml
+build.properties
+
+### IntelliJ ###
+*.iml
+*.ipr
+*.iws
+.idea/
+
+### Java ###
+*.class
+*.jar
+*.war
+*.ear
+/target/
+/faces-config.NavData
+*.log
