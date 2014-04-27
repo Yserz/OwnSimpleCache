@@ -93,16 +93,16 @@
             </http-service>
             <iiop-service>
                 <orb use-thread-pool-ids="thread-pool-1"></orb>
-                <iiop-listener id="orb-listener-1" port="3700" address="0.0.0.0" lazy-init="true"></iiop-listener>
-                <iiop-listener id="SSL" port="3820" address="0.0.0.0" security-enabled="true">
+                <iiop-listener id="orb-listener-1" port="3701" address="0.0.0.0" lazy-init="true"></iiop-listener>
+                <iiop-listener id="SSL" port="3821" address="0.0.0.0" security-enabled="true">
                     <ssl classname="com.sun.enterprise.security.ssl.GlassfishSSLImpl" cert-nickname="s1as"></ssl>
                 </iiop-listener>
-                <iiop-listener id="SSL_MUTUALAUTH" port="3920" address="0.0.0.0" security-enabled="true">
+                <iiop-listener id="SSL_MUTUALAUTH" port="3921" address="0.0.0.0" security-enabled="true">
                     <ssl classname="com.sun.enterprise.security.ssl.GlassfishSSLImpl" cert-nickname="s1as" client-auth-enabled="true"></ssl>
                 </iiop-listener>
             </iiop-service>
             <admin-service system-jmx-connector-name="system" type="das-and-server">
-                <jmx-connector port="9696" address="0.0.0.0" security-enabled="false" auth-realm-name="admin-realm" name="system"></jmx-connector>
+                <jmx-connector port="9697" address="0.0.0.0" security-enabled="false" auth-realm-name="admin-realm" name="system"></jmx-connector>
                 <property name="adminConsoleContextRoot" value="/admin"></property>
                 <property name="adminConsoleDownloadLocation" value="${com.sun.aas.installRoot}/lib/install/applications/admingui.war"></property>
                 <property name="ipsRoot" value="${com.sun.aas.installRoot}/.."></property>
@@ -241,9 +241,9 @@
                     </protocol>
                 </protocols>
                 <network-listeners>
-                    <network-listener port="9090" protocol="http-listener-1" transport="tcp" name="http-listener-1" thread-pool="http-thread-pool"></network-listener>
-                    <network-listener port="9191" protocol="http-listener-2" transport="tcp" name="http-listener-2" thread-pool="http-thread-pool"></network-listener>
-                    <network-listener port="5858" protocol="admin-listener" transport="tcp" name="admin-listener" thread-pool="admin-thread-pool"></network-listener>
+                    <network-listener port="9091" protocol="http-listener-1" transport="tcp" name="http-listener-1" thread-pool="http-thread-pool"></network-listener>
+                    <network-listener port="9192" protocol="http-listener-2" transport="tcp" name="http-listener-2" thread-pool="http-thread-pool"></network-listener>
+                    <network-listener port="5859" protocol="admin-listener" transport="tcp" name="admin-listener" thread-pool="admin-thread-pool"></network-listener>
                 </network-listeners>
                 <transports>
                     <transport name="tcp"></transport>
