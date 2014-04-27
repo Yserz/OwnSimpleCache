@@ -177,11 +177,9 @@ public class CacheInterceptor {
 			for (Annotation annotation : annotations) {
 				if (annotation instanceof Context) {
 					LOG.log(Level.FINEST, "CACHE-INTERCEPTOR: -\t\t\t\tpType: {0}", parameterType.getName());
-					System.out.println("CACHE-INTERCEPTOR: -\t\t\t\tpType: " + parameterType.getName());
 					// Dont print Requests out of request-scope
 //					LOG.log(Level.FINEST, "CACHE-INTERCEPTOR: -				pValue: {0}", params[i]);
 					LOG.log(Level.FINEST, "CACHE-INTERCEPTOR: -\t\t\t\taType: {0}", annotation.annotationType().getName());
-					System.out.println("CACHE-INTERCEPTOR: -\t\t\t\taType: " + annotation.annotationType().getName());
 					if (parameterType.getName().equalsIgnoreCase("javax.ws.rs.core.Request")) {
 						req = (Request) params[i];
 					}

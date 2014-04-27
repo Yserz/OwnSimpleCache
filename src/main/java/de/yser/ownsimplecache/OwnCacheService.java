@@ -46,7 +46,6 @@ public class OwnCacheService {
 	 * @param genericTypeHint
 	 */
 	public synchronized <T> void cache(String key, Class<? extends T> asType, T value, String genericTypeHint) {
-		System.out.println("CACHE is called!");
 		if (isAnyNullOrEmpty(new Object[]{key, asType}) || value == null) {
 			throw new IllegalArgumentException("Can't cache with null-value, null-key, empty key, null-type or empty lists!");
 		}
