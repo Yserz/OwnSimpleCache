@@ -5,14 +5,22 @@ import javax.json.stream.JsonGenerator;
 import javax.ws.rs.ApplicationPath;
 import org.glassfish.jersey.CommonProperties;
 import org.glassfish.jersey.filter.LoggingFilter;
+import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
+import util.integration.rest.resource.CategoryResource;
 
+/**
+ *
+ * @author Michael Koppen
+ */
 @ApplicationPath("/service/v1")
 public class RestConfig extends ResourceConfig {
 
 	public RestConfig() {
 		// RESOURCES
-		packages("util.integration.rest.resource", "com.fasterxml.jackson.jaxrs.base");
+		register(CategoryResource.class);
+		register(ObjectMapperResolver.class);
+		register(JacksonFeature.class);
 
 		// MOXy JSON
 //		register(MoxyJsonFeature.class);

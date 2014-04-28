@@ -9,7 +9,7 @@ import javax.ws.rs.core.Response;
 
 /**
  *
- * @author MacYser
+ * @author Michael Koppen
  */
 public class EntityTagGenerator {
 

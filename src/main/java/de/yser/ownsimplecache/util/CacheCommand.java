@@ -2,7 +2,7 @@ package de.yser.ownsimplecache.util;
 
 /**
  *
- * @author MacYser
+ * @author Michael Koppen
  */
 public enum CacheCommand {
 

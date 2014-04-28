@@ -16,7 +16,7 @@ import util.integration.service.CategoryService;
 
 /**
  *
- * @author MacYser
+ * @author Michael Koppen
  */
 @Path("categories")
 @Stateless

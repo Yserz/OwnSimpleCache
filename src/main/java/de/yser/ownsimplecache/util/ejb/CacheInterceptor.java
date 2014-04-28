@@ -16,7 +16,7 @@ import javax.interceptor.InvocationContext;
 
 /**
  *
- * @author MacYser
+ * @author Michael Koppen
  */
 @EJBCache
 @Interceptor

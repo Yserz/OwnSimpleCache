@@ -10,7 +10,7 @@ import javax.jms.*;
 
 /**
  *
- * @author MacYser
+ * @author Michael Koppen
  */
 @Singleton
 public class OwnCacheServerService {

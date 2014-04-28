@@ -1,24 +1,7 @@
-/*
- * Copyright (C) 2013 Michael Koppen
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package util.integration.rest.dto;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.xml.bind.annotation.XmlElement;
 
 public class BaseDTO implements Serializable {
 
@@ -27,7 +10,6 @@ public class BaseDTO implements Serializable {
 	private Date created;
 	private Date lastModified;
 	private boolean enabled;
-	@XmlElement(nillable = true)
 	private String name;
 
 	public BaseDTO() {
@@ -45,12 +27,10 @@ public class BaseDTO implements Serializable {
 		return created;
 	}
 
-//	@XmlTransient
 	public Date getLastModified() {
 		return lastModified;
 	}
 
-//	@XmlTransient
 	public void setCreated(Date created) {
 		this.created = created;
 	}
@@ -59,7 +39,6 @@ public class BaseDTO implements Serializable {
 		this.lastModified = lastModified;
 	}
 
-//	@XmlTransient
 	public boolean isEnabled() {
 		return enabled;
 	}

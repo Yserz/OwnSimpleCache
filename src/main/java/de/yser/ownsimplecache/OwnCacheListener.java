@@ -16,7 +16,7 @@ import javax.jms.TextMessage;
 
 /**
  *
- * @author MacYser
+ * @author Michael Koppen
  */
 @MessageDriven(mappedName = "jms/CacheTopic", activationConfig = {
 	@ActivationConfigProperty(propertyName = "acknowledgeMode",

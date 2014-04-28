@@ -6,7 +6,7 @@ import javax.interceptor.InterceptorBinding;
 
 /**
  *
- * @author MacYser
+ * @author Michael Koppen
  */
 @Inherited
 @Repeatable(ClearCaches.class)

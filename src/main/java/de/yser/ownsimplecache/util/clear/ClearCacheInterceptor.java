@@ -13,7 +13,7 @@ import javax.interceptor.InvocationContext;
 
 /**
  *
- * @author MacYser
+ * @author Michael Koppen
  */
 @ClearCache
 @Interceptor

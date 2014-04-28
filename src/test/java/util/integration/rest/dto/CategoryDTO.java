@@ -4,7 +4,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Benny
+ * @author Michael Koppen
  */
 public class CategoryDTO extends BaseDTO {
 

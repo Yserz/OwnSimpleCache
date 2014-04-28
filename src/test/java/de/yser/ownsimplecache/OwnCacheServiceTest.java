@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package de.yser.ownsimplecache;
 
 import de.yser.ownsimplecache.cache.CacheHashMap;
@@ -13,7 +8,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author MacYser
+ * @author Michael Koppen
  */
 public class OwnCacheServiceTest {
 

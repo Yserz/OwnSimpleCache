@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response;
 
 /**
  *
- * @author MacYser
+ * @author Michael Koppen
  */
 @Singleton
 public class OwnCacheService {

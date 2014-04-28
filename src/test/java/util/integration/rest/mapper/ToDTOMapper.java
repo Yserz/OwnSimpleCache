@@ -7,7 +7,7 @@ import util.integration.rest.dto.CategoryDTO;
 
 /**
  *
- * @author MacYser
+ * @author Michael Koppen
  */
 public class ToDTOMapper {
 
