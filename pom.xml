@@ -26,6 +26,7 @@
     <organization>
         <name>Michael Koppen</name>
     </organization>
+    
     <developers>
         <developer>
             <name>Michael Koppen</name>
@@ -37,8 +38,8 @@
         <connection>scm:git:git@github.com:Yserz/OwnSimpleCache.git</connection>
         <developerConnection>scm:git:git@github.com:Yserz/OwnSimpleCache.git</developerConnection>
         <url>https://github.com/Yserz/OwnSimpleCache</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
     <issueManagement>
         <system>GitHub Issue Management</system>
         <url>https://github.com/Yserz/OwnSimpleCache/issues</url>
