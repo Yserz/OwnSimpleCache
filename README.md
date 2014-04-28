@@ -11,7 +11,7 @@ You can download OwnSimpleCache from <a href="https://bitbucket.org/api/1.0/repo
 
 ## Using Maven
 If you want use Maven simply add the repository and dependency of OwnSimpleCache.
-<code>
+```xml
 ...
 <repositories>
     ...
@@ -33,7 +33,7 @@ If you want use Maven simply add the repository and dependency of OwnSimpleCache
     ...
 <dependencies>
 ...
-</code>
+```
 
 ## Issue Management
 If you find a bug or have an idea for a feature, feel free to post it [here](https://github.com/Yserz/OwnSimpleCache/issues).
