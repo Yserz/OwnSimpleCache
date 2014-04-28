@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.yser</groupId>
     <artifactId>OwnSimpleCache</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <packaging>jar</packaging>
 
     <name>OwnSimpleCache</name>
@@ -38,7 +37,8 @@
         <connection>scm:git:git@github.com:Yserz/OwnSimpleCache.git</connection>
         <developerConnection>scm:git:git@github.com:Yserz/OwnSimpleCache.git</developerConnection>
         <url>https://github.com/Yserz/OwnSimpleCache</url>
-    </scm>
+      <tag>OwnSimpleCache-0.1</tag>
+  </scm>
     <issueManagement>
         <system>GitHub Issue Management</system>
         <url>https://github.com/Yserz/OwnSimpleCache/issues</url>
@@ -185,7 +185,7 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.5</version>
                 <configuration>
-                    <arguments></arguments>
+                    <arguments />
                 </configuration>
             </plugin>
             <plugin>
@@ -317,7 +317,7 @@
                             <executable>java</executable>
                             <arguments>
                                 <argument>-classpath</argument>
-                                <classpath/>
+                                <classpath />
                                 <argument>org.openjdk.jmh.Main</argument>
                                 <argument>.*</argument>
                             </arguments>
