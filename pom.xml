@@ -4,7 +4,7 @@
 
     <groupId>de.yser</groupId>
     <artifactId>OwnSimpleCache</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>OwnSimpleCache</name>
@@ -35,8 +35,8 @@
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:ssh://github.com:Yserz/OwnSimpleCache.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/Yserz/OwnSimpleCache.git</developerConnection>
+        <connection>scm:git:git@github.com:Yserz/OwnSimpleCache.git</connection>
+        <developerConnection>scm:git:git@github.com:Yserz/OwnSimpleCache.git</developerConnection>
         <url>https://github.com/Yserz/OwnSimpleCache.git</url>
     </scm>
     <issueManagement>
@@ -173,6 +173,14 @@
                         </goals> 
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <arguments></arguments>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
