@@ -7,10 +7,10 @@ In addition OwnSimpleCache provides support for JAX-RS Entity-Tags.
 Combining these two caching technologies results in faster responses and less bandwidth consumption.
 
 ## Download
-You can download TabSwitch from <a href="https://bitbucket.org/api/1.0/repositories/Yserz/ownmavenrepo/raw/HEAD/de/yser/OwnSimpleCache/0.1/OwnSimpleCache-0.1.jar" type="application/octet-stream">here</a>.
+You can download OwnSimpleCache from <a href="https://bitbucket.org/api/1.0/repositories/Yserz/ownmavenrepo/raw/HEAD/de/yser/OwnSimpleCache/0.1/OwnSimpleCache-0.1.jar" type="application/octet-stream">here</a>.
 
 ## Using Maven
-If you want use Maven simply add the repository and dependency of OwnSimpleCache
+If you want use Maven simply add the repository and dependency of OwnSimpleCache.
 <code>
 ...
 <repositories>
