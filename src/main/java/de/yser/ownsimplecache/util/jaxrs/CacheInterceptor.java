@@ -35,7 +35,6 @@ public class CacheInterceptor {
 	private static final Logger LOG = Logger.getLogger(CacheInterceptor.class.getName());
 
 	public CacheInterceptor() {
-		LOG.setLevel(Level.FINEST);
 		this.etGen = new EntityTagGenerator();
 		this.keyGen = new KeyGenerator();
 		this.annoReader = new CacheAnnotationReader();

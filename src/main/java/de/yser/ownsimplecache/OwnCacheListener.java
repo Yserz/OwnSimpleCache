@@ -39,16 +39,16 @@ public class OwnCacheListener implements MessageListener {
 			try {
 
 				TextMessage textMessage = (TextMessage) message;
-				LOG.log(Level.INFO, "REST_CACHE");
-				LOG.log(Level.INFO, "Received TextMessage: {0}", textMessage);
-				LOG.log(Level.INFO, "Command: {0}", textMessage.getStringProperty("command"));
-				LOG.log(Level.INFO, "sent: {0}", new Date(textMessage.getLongProperty("sent")));
-				LOG.log(Level.INFO, "received: {0}", new Date(System.currentTimeMillis()));
+				LOG.log(Level.FINEST, "REST_CACHE");
+				LOG.log(Level.FINEST, "Received TextMessage: {0}", textMessage);
+				LOG.log(Level.FINEST, "Command: {0}", textMessage.getStringProperty("command"));
+				LOG.log(Level.FINEST, "sent: {0}", new Date(textMessage.getLongProperty("sent")));
+				LOG.log(Level.FINEST, "received: {0}", new Date(System.currentTimeMillis()));
 				if (textMessage.getStringProperty("command").equals(CacheCommand.INVALIDATE_ALL_CACHES.name())) {
 					cache.invalidateAllCaches();
 				}
 				if (textMessage.getStringProperty("command").equals(CacheCommand.INVALIDATE_CACHE.name())) {
-					LOG.log(Level.INFO, "genericTypeHint: {0}", textMessage.getStringProperty("genericTypeHint"));
+					LOG.log(Level.FINEST, "genericTypeHint: {0}", textMessage.getStringProperty("genericTypeHint"));
 					cache.invalidateCache(textMessage.getStringProperty("type"), textMessage.getStringProperty("genericTypeHint"));
 				}
 			} catch (JMSException ex) {

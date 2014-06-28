@@ -15,6 +15,8 @@ import javax.jms.*;
 @Singleton
 public class OwnCacheServerService {
 
+	private static final Logger LOG = Logger.getLogger(OwnCacheServerService.class.getName());
+
 	@Resource(mappedName = "java:app/jms/CacheTopicConnectionFactory")
 	private ConnectionFactory connectionFactory;
 	@Resource(mappedName = "java:app/jms/CacheTopic")
@@ -22,17 +24,21 @@ public class OwnCacheServerService {
 //	private Map<String, Object> cacheServices;
 
 	public OwnCacheServerService() {
-		System.out.println("OwnCacheServerService startup....");
+		LOG.log(Level.INFO, "OwnCacheServerService startup....");
 	}
 
 	@PostConstruct
-	public void init() {
+	private void init() {
 		invalidateAllCaches();
 
 	}
 
+	public static void registerHooks(Class<?> hookType, Class<?>... hooks) throws Exception {
+		OwnCacheService.registerHooks(hookType, hooks);
+	}
+
 	public void invalidateAllCaches() {
-		System.out.println("INVALIDATING ALL CACHES");
+		LOG.log(Level.INFO, "INVALIDATING ALL CACHES");
 		try {
 			Connection connection = null;
 			Session session = null;
@@ -72,7 +78,7 @@ public class OwnCacheServerService {
 	}
 
 	public void invalidateCache(String cacheType, String genericTypeHint) {
-		System.out.println("INVALIDATING CACHE OF TYPE " + cacheType);
+		LOG.log(Level.INFO, "INVALIDATING CACHE OF TYPE {0}", cacheType);
 		try {
 			Connection connection = null;
 			Session session = null;
