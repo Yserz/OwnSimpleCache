@@ -3,7 +3,7 @@
 
     <groupId>de.yser</groupId>
     <artifactId>OwnSimpleCache</artifactId>
-    <version>0.2.2-SNAPSHOT</version>
+    <version>0.2.2</version>
     <packaging>jar</packaging>
 
     <name>OwnSimpleCache</name>
@@ -38,7 +38,7 @@
         <connection>scm:git:git@github.com:Yserz/OwnSimpleCache.git</connection>
         <developerConnection>scm:git:git@github.com:Yserz/OwnSimpleCache.git</developerConnection>
         <url>https://github.com/Yserz/OwnSimpleCache</url>
-        <tag>HEAD</tag>
+        <tag>OwnSimpleCache-0.2.2</tag>
     </scm>
     <issueManagement>
         <system>GitHub Issue Management</system>
