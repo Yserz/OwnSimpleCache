@@ -100,14 +100,25 @@ public class OwnCacheService {
 			throw new IllegalArgumentException("Can't cache with null-value, null-key, empty key, null-type or empty lists!");
 		}
 		for (Hook monitorHook : hooks) {
-			monitorHook.willCache(asType.getName(), key, value.toString());
+			try {
+				monitorHook.willCache(asType.getName(), key, value.toString());
+			} catch (Exception e) {
+				LOG.log(Level.WARNING, "Exception while running hook of type \"" + monitorHook.getClass().getName() + "\". Raise the LogLevel to INFO to see the stacktrace.", e.getMessage());
+				LOG.log(Level.INFO, "HookException: ", e);
+			}
 		}
 		CacheHashMap foundCache = getOrCreateCache(asType, genericTypeHint);
 //		LOG.log(Level.INFO, " -	Caching object of class {0} as {1} with key {2}.", new Object[]{value.getClass().getName(), asType.getName(), key});
 
 		foundCache.put(key, value);
 		for (Hook monitorHook : hooks) {
-			monitorHook.didCache(asType.getName(), key, value.toString());
+			try {
+				monitorHook.didCache(asType.getName(), key, value.toString());
+			} catch (Exception e) {
+				LOG.log(Level.WARNING, "Exception while running hook of type \"" + monitorHook.getClass().getName() + "\". Raise the LogLevel to INFO to see the stacktrace.", e.getMessage());
+				LOG.log(Level.INFO, "HookException: ", e);
+			}
+
 		}
 
 	}
@@ -121,7 +132,13 @@ public class OwnCacheService {
 			throw new IllegalArgumentException("Can't get value with null-class, null-key or empty key!");
 		}
 		for (Hook monitorHook : hooks) {
-			monitorHook.willGet(type.getName(), key);
+
+			try {
+				monitorHook.willGet(type.getName(), key);
+			} catch (Exception e) {
+				LOG.log(Level.WARNING, "Exception while running hook of type \"" + monitorHook.getClass().getName() + "\". Raise the LogLevel to INFO to see the stacktrace.", e.getMessage());
+				LOG.log(Level.INFO, "HookException: ", e);
+			}
 		}
 
 		T result = null;
@@ -135,12 +152,15 @@ public class OwnCacheService {
 		if (foundCache != null) {
 //			LOG.log(Level.INFO, " -	Getting object of class {0} with key {1}.", new Object[]{type.getName(), key});
 			if (foundCache.containsKey(key)) {
-
 				result = type.cast(foundCache.get(key));
 				for (Hook monitorHook : hooks) {
-					monitorHook.didGet(type.getName(), key);
+					try {
+						monitorHook.didGet(type.getName(), key);
+					} catch (Exception e) {
+						LOG.log(Level.WARNING, "Exception while running hook of type \"" + monitorHook.getClass().getName() + "\". Raise the LogLevel to INFO to see the stacktrace.", e.getMessage());
+						LOG.log(Level.INFO, "HookException: ", e);
+					}
 				}
-
 			}
 		} else {
 			// TODO maybe create cache with default-values
@@ -198,7 +218,12 @@ public class OwnCacheService {
 			throw new IllegalArgumentException("Can't invalidate with null-class!");
 		}
 		for (Hook monitorHook : hooks) {
-			monitorHook.willInvalidateCache(clazzString, genericTypeHint);
+			try {
+				monitorHook.willInvalidateCache(clazzString, genericTypeHint);
+			} catch (Exception e) {
+				LOG.log(Level.WARNING, "Exception while running hook of type \"" + monitorHook.getClass().getName() + "\". Raise the LogLevel to INFO to see the stacktrace.", e.getMessage());
+				LOG.log(Level.INFO, "HookException: ", e);
+			}
 		}
 
 		ClassLoader cl = this.getClass().getClassLoader();
@@ -253,7 +278,13 @@ public class OwnCacheService {
 				}
 			}
 			for (Hook monitorHook : hooks) {
-				monitorHook.didInvalidateCache(clazzString, genericTypeHint);
+				try {
+					monitorHook.didInvalidateCache(clazzString, genericTypeHint);
+				} catch (Exception e) {
+					LOG.log(Level.WARNING, "Exception while running hook of type \"" + monitorHook.getClass().getName() + "\". Raise the LogLevel to INFO to see the stacktrace.", e.getMessage());
+					LOG.log(Level.INFO, "HookException: ", e);
+				}
+
 			}
 		} catch (ClassNotFoundException ex) {
 			Logger.getLogger(OwnCacheService.class.getName()).log(Level.SEVERE, null, ex);
@@ -263,11 +294,22 @@ public class OwnCacheService {
 
 	public void invalidateAllCaches() {
 		for (Hook monitorHook : hooks) {
-			monitorHook.willInvalidateAllCaches();
+			try {
+				monitorHook.willInvalidateAllCaches();
+			} catch (Exception e) {
+				LOG.log(Level.WARNING, "Exception while running hook of type \"" + monitorHook.getClass().getName() + "\". Raise the LogLevel to INFO to see the stacktrace.", e.getMessage());
+				LOG.log(Level.INFO, "HookException: ", e);
+			}
+
 		}
 		caches = new ConcurrentHashMap<>();
 		for (Hook monitorHook : hooks) {
-			monitorHook.didInvalidateAllCaches();
+			try {
+				monitorHook.didInvalidateAllCaches();
+			} catch (Exception e) {
+				LOG.log(Level.WARNING, "Exception while running hook of type \"" + monitorHook.getClass().getName() + "\". Raise the LogLevel to INFO to see the stacktrace.", e.getMessage());
+				LOG.log(Level.INFO, "HookException: ", e);
+			}
 		}
 	}
 
@@ -310,19 +352,37 @@ public class OwnCacheService {
 			throw new IllegalArgumentException("Can't create cache with null-values or expiringtime <= 0 !");
 		}
 		for (Hook monitorHook : hooks) {
-			monitorHook.willCreateCache(type.getName(), genericTypeHint, expiringTime, unit);
+			try {
+				monitorHook.willCreateCache(type.getName(), genericTypeHint, expiringTime, unit);
+			} catch (Exception e) {
+				LOG.log(Level.WARNING, "Exception while running hook of type \"" + monitorHook.getClass().getName() + "\". Raise the LogLevel to INFO to see the stacktrace.", e.getMessage());
+				LOG.log(Level.INFO, "HookException: ", e);
+			}
+
 		}
 
 		if (genericTypeHint != null) {
 			caches.put(type.getName() + "<" + genericTypeHint + ">", createTypedCache(expiringTime, unit));
 			for (Hook monitorHook : hooks) {
-				monitorHook.didCreateCache(type.getName(), genericTypeHint, expiringTime, unit);
+				try {
+					monitorHook.didCreateCache(type.getName(), genericTypeHint, expiringTime, unit);
+				} catch (Exception e) {
+					LOG.log(Level.WARNING, "Exception while running hook of type \"" + monitorHook.getClass().getName() + "\". Raise the LogLevel to INFO to see the stacktrace.", e.getMessage());
+					LOG.log(Level.INFO, "HookException: ", e);
+				}
+
 			}
 			return caches.get(type.getName() + "<" + genericTypeHint + ">");
 		} else {
 			caches.put(type.getName(), createTypedCache(expiringTime, unit));
 			for (Hook monitorHook : hooks) {
-				monitorHook.didCreateCache(type.getName(), genericTypeHint, expiringTime, unit);
+				try {
+					monitorHook.didCreateCache(type.getName(), genericTypeHint, expiringTime, unit);
+				} catch (Exception e) {
+					LOG.log(Level.WARNING, "Exception while running hook of type \"" + monitorHook.getClass().getName() + "\". Raise the LogLevel to INFO to see the stacktrace.", e.getMessage());
+					LOG.log(Level.INFO, "HookException: ", e);
+				}
+
 			}
 			return caches.get(type.getName());
 		}
